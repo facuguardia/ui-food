@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   RiHome6Line,
@@ -11,12 +11,17 @@ import {
 } from "react-icons/ri";
 import { MdFastfood } from "react-icons/md";
 
-function Sidebar() {
+function Sidebar(props) {
+  const {showMenu} = props;
   return (
-    <div className="bg-[#1F1D28] fixed top-0 left-0 w-28 h-full rounded-tr-2xl rounded-br-2xl">
+    <div
+      className={`bg-[#1F1D28] fixed top-0 lg:left-0 w-28 h-full flex flex-col justify-between py-6 rounded-tr-xl rounded-br-xl z-50 transition-all ${
+        showMenu ? "left-0" : "-left-full"
+      }`}
+    >
       <ul className="pl-4">
-        <div className="p-6 flex justify-center ">
-          <MdFastfood className="text-5xl text-[#ec7c6a] bg-[#ec7c6a]/20 p-2  rounded-md" />
+        <div className="p-4 flex justify-center">
+          <h1 className="text-gray-300 font-bold text-3xl p-2 bg-[#ec7c6a]/50 rounded-lg">FF</h1>
         </div>
         <li className="bg-[#262837] p-4 rounded-tl-xl rounded-bl-xl">
           <Link
